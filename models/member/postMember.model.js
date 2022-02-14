@@ -3,19 +3,19 @@ const path = require("path");
 const cors = require("cors");
 const multer = require("multer");
 
-// var storage = multer.diskStorage({
-//   // destination: path.join(__dirname, '../../../nba-express-fontend/', 'upload'),
-//   destination: path.join(
-//     __dirname,
-//     `${process.env.EXPRESS_FIND_FOLDER_FROUNTEND}`,
-//     `${process.env.EXPRESS_FIND_SAVE_IMAGE_FROUNTEND}`
-//   ),
-//   filename: function (req, file, cb) {
-//     // null as first argument means no error
-//     cb(null, Date.now() + "-" + file.originalname);
-//     // console.log(Date.now())
-//   },
-// });
+var storage = multer.diskStorage({
+  // destination: path.join(__dirname, '../../../nba-express-fontend/', 'upload'),
+  destination: path.join(
+    __dirname,
+    `${process.env.EXPRESS_FIND_FOLDER_FROUNTEND}`,
+    `${process.env.EXPRESS_FIND_SAVE_IMAGE_FROUNTEND}`
+  ),
+  filename: function (req, file, cb) {
+    // null as first argument means no error
+    cb(null, Date.now() + "-" + file.originalname);
+    // console.log(Date.now())
+  },
+});
 
 module.exports = postProduct = (req, res) => {
   try {
