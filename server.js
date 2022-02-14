@@ -10,8 +10,9 @@ const getMembers = require("./models/member/getAllMember.model.js");
 // const postMember = require("./models/member/postMember.model.js");
 // const getByIdMemmber = require("./models/member/getByIdMember.model.js");
 // const putMembers = require("./models/member/putMembet.model.js");
-// const deleteMember = require("./models/member/deleteMember");
+const deleteMember = require("./models/member/deleteMember");
 const loginMember = require("./models/member/loginMember.model.js");
+const deleteMemberById = require("./models/member/deleteMemberById.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -43,9 +44,9 @@ app.get("/members", getMembers);
 
 // app.put("/member", putMembers);
 
-// app.delete("/member/:id", deleteMember);
+app.delete("/member/:id", deleteMember);
 
-// app.delete("/memberId/:id", deleteMemberById);
+app.delete("/memberId/:id", deleteMemberById);
 
 app.post("/login", loginMember);
 
