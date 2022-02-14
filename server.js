@@ -9,7 +9,7 @@ const cors = require("cors");
 const getMembers = require("./models/member/getAllMember.model.js");
 // const postMember = require("./models/member/postMember.model.js");
 const getByIdMemmber = require("./models/member/getByIdMember.model.js");
-// const putMembers = require("./models/member/putMembet.model.js");
+const putMembers = require("./models/member/putMembet.model.js");
 const deleteMember = require("./models/member/deleteMember");
 const loginMember = require("./models/member/loginMember.model.js");
 const deleteMemberById = require("./models/member/deleteMemberById.js");
@@ -43,7 +43,7 @@ app.get("/member/:id", getByIdMemmber);
 
 app.get("/getMemberByid/:id", getMemberByid);
 
-// app.put("/member", putMembers);
+app.put("/member", putMembers);
 
 app.delete("/member/:id", deleteMember);
 
