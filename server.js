@@ -11,7 +11,7 @@ const getMembers = require("./models/member/getAllMember.model.js");
 // const getByIdMemmber = require("./models/member/getByIdMember.model.js");
 // const putMembers = require("./models/member/putMembet.model.js");
 // const deleteMember = require("./models/member/deleteMember");
-// const loginMember = require("./models/member/loginMember.model.js");
+const loginMember = require("./models/member/loginMember.model.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -47,7 +47,7 @@ app.get("/members", getMembers);
 
 // app.delete("/memberId/:id", deleteMemberById);
 
-// app.post("/login", loginMember);
+app.post("/login", loginMember);
 
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
