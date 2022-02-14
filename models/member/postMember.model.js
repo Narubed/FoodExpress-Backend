@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
   },
 });
 
-module.exports = postProduct = (req, res) => {
+module.exports = postMember = (req, res) => {
   try {
     // 'avatar' is the name of our file input field in the HTML form
     // upload.fields([{ name: 'cardImg', maxCount: 10 }, { name: 'bookBankImg', maxCount: 10 }])
