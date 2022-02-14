@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 
 app.get("/members", getMembers);
 
-app.post("/member", postMember);
+// app.post("/member", postMember);
 
 app.get("/member/:id", getByIdMemmber);
 
