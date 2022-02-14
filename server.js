@@ -7,7 +7,7 @@ require("dotenv").config();
 const cors = require("cors");
 
 const getMembers = require("./models/member/getAllMember.model.js");
-// const postMember = require("./models/member/postMember.model.js");
+const postMember = require("./models/member/postMember.model.js");
 const getByIdMemmber = require("./models/member/getByIdMember.model.js");
 const putMembers = require("./models/member/putMembet.model.js");
 const deleteMember = require("./models/member/deleteMember");
@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 
 app.get("/members", getMembers);
 
-// app.post("/member", postMember);
+app.post("/member", postMember);
 
 app.get("/member/:id", getByIdMemmber);
 
