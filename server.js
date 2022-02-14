@@ -7,11 +7,11 @@ require("dotenv").config();
 const cors = require("cors");
 
 const getMembers = require("./models/member/getAllMember.model.js");
-const postMember = require("./models/member/postMember.model.js");
-const getByIdMemmber = require("./models/member/getByIdMember.model.js");
-const putMembers = require("./models/member/putMembet.model.js");
-const deleteMember = require("./models/member/deleteMember");
-const loginMember = require("./models/member/loginMember.model.js");
+// const postMember = require("./models/member/postMember.model.js");
+// const getByIdMemmber = require("./models/member/getByIdMember.model.js");
+// const putMembers = require("./models/member/putMembet.model.js");
+// const deleteMember = require("./models/member/deleteMember");
+// const loginMember = require("./models/member/loginMember.model.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -37,15 +37,17 @@ app.get("/members", getMembers);
 
 // app.post("/member", postMember);
 
-app.get("/member/:id", getByIdMemmber);
+// app.get("/member/:id", getByIdMemmber);
 
-app.get("/getMemberByid/:id", getMemberByid);
+// app.get("/getMemberByid/:id", getMemberByid);
 
-app.put("/member", putMembers);
+// app.put("/member", putMembers);
 
-app.delete("/member/:id", deleteMember);
+// app.delete("/member/:id", deleteMember);
 
-app.delete("/memberId/:id", deleteMemberById);
+// app.delete("/memberId/:id", deleteMemberById);
+
+// app.post("/login", loginMember);
 
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
