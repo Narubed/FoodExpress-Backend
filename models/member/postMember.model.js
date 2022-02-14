@@ -8,7 +8,7 @@ var storage = multer.diskStorage({
   destination: path.join(
     __dirname,
     `${process.env.EXPRESS_FIND_FOLDER_FROUNTEND}`,
-    `${process.env.EXPRESS_FIND_SAVE_IMAGE_FROUNTEND}`
+    `${process.env.EXPRESS_FIND_SAVE_IMAGE_FROUNTEND}`, 'upload'
   ),
   filename: function (req, file, cb) {
     // null as first argument means no error
