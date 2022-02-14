@@ -8,11 +8,12 @@ const cors = require("cors");
 
 const getMembers = require("./models/member/getAllMember.model.js");
 // const postMember = require("./models/member/postMember.model.js");
-// const getByIdMemmber = require("./models/member/getByIdMember.model.js");
+const getByIdMemmber = require("./models/member/getByIdMember.model.js");
 // const putMembers = require("./models/member/putMembet.model.js");
 const deleteMember = require("./models/member/deleteMember");
 const loginMember = require("./models/member/loginMember.model.js");
 const deleteMemberById = require("./models/member/deleteMemberById.js");
+const getMemberByid = require("./models/member/getMemberByid.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -38,9 +39,9 @@ app.get("/members", getMembers);
 
 // app.post("/member", postMember);
 
-// app.get("/member/:id", getByIdMemmber);
+app.get("/member/:id", getByIdMemmber);
 
-// app.get("/getMemberByid/:id", getMemberByid);
+app.get("/getMemberByid/:id", getMemberByid);
 
 // app.put("/member", putMembers);
 
