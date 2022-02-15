@@ -20,6 +20,12 @@ const getAllProduct = require("./models/product/getAllProduct.js");
 const deleteProduct = require("./models/product/deleteProduct.js");
 const getByidProduct = require("./models/product/getByidProduct.js");
 const putProduct = require("./models/product/putProduct");
+const posrProductType = require("./models/productType/postProductType.js");
+const getAllProductType = require("./models/productType/getAllProductType.js");
+const getByIdProductType = require("./models/productType/getByIdProductType.js");
+const putProductType = require("./models/productType/putProductType.js");
+const deleteProductType = require("./models/productType/deleteProductType.js");
+const getJoinProductType = require("./models/product/getJoinProductType.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -66,6 +72,18 @@ app.get("/product/:id", getByidProduct);
 app.put("/product", putProduct);
 
 app.post("/login", loginMember);
+
+app.post("/producttype", posrProductType);
+
+app.get("/producttypes", getAllProductType);
+
+app.get("/producttype/:id", getByIdProductType);
+
+app.put("/producttype", putProductType);
+
+app.delete("/producttype/:id", deleteProductType);
+
+app.get("/getJoinProductType", getJoinProductType);
 
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);

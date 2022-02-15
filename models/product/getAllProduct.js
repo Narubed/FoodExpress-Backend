@@ -1,5 +1,5 @@
 const dbCon = require("../../config/db.js")
-module.exports = getMembers  = async (req, res) => {
+module.exports = getAllProduct  = async (req, res) => {
       dbCon.query('SELECT * FROM product', (error, results, fields) => {
         // if (error)
         //     throw error;
