@@ -15,6 +15,12 @@ const loginMember = require("./models/member/loginMember.model.js");
 const deleteMemberById = require("./models/member/deleteMemberById.js");
 const getMemberByid = require("./models/member/getMemberByid.js");
 
+const postProduct = require("./models/product/postProduct.js");
+const getAllProduct = require("./models/product/getAllProduct.js");
+const deleteProduct = require("./models/product/deleteProduct.js");
+const getByidProduct = require("./models/product/getByidProduct.js");
+const putProduct = require("./models/product/putProduct");
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -48,6 +54,16 @@ app.put("/member", putMembers);
 app.delete("/member/:id", deleteMember);
 
 app.delete("/memberId/:id", deleteMemberById);
+
+app.post("/imageupload", postProduct);
+
+app.get("/products", getAllProduct);
+
+app.delete("/product/:id", deleteProduct);
+
+app.get("/product/:id", getByidProduct);
+
+app.put("/product", putProduct);
 
 app.post("/login", loginMember);
 
