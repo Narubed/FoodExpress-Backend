@@ -5,13 +5,10 @@ const cors = require("cors");
 const multer = require("multer");
 const { google } = require("googleapis");
 
-const CLIENT_ID =
-  "967933639600-guqd7tg6uooqn68s0q3pmq6en4hrevqp.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "https://developers.google.com/oauthplayground";
-
-const REFRESH_TOKEN =
-  "1//04z83a_RSohB7CgYIARAAGAQSNwF-L9IrFRQ2a0x6OqdIDZBYgOTE2uc3w6HR7HKecudPkD8TiJZ3sYZranAss1p9Oc15MmWwzi0";
+const CLIENT_ID = process.env.GOOGLE_DRIVE_CLIENT_ID;
+const CLIENT_SECRET = process.env.GOOGLE_DRIVE_CLIENT_SECRET;
+const REDIRECT_URI = process.env.GOOGLE_DRIVE_REDIRECT_URI;
+const REFRESH_TOKEN = process.env.GOOGLE_DRIVE_REFRESH_TOKEN;
 
 const oauth2Client = new google.auth.OAuth2(
   CLIENT_ID,
@@ -25,14 +22,7 @@ const drive = google.drive({
 });
 
 const storage = multer.diskStorage({
-  // destination: path.join(__dirname, "../../../fontend-react/", "upload"),
-  // destination: path.join(
-  //   __dirname,
-  //   // `${process.env.EXPRESS_FIND_FOLDER_FROUNTEND}`,
-  //   // `${process.env.EXPRESS_FIND_SAVE_IMAGE_FROUNTEND}`
-  // ),
   filename: function (req, file, cb) {
-    // null as first argument means no error
     cb(null, Date.now() + "-" + file.originalname);
     console.log(Date.now());
   },
@@ -45,11 +35,6 @@ module.exports = postProduct = (req, res) => {
     let upload = multer({ storage: storage }).single("avatar");
     console.log(upload);
     upload(req, res, function (err) {
-      // req.file contains information of uploaded file
-      // req.body contains information of text fields
-      console.log(req.file);
-
-      uploadFile(req.file);
       if (!req.file) {
         return res.send("Please select an image to upload");
       } else if (err instanceof multer.MulterError) {
@@ -57,49 +42,66 @@ module.exports = postProduct = (req, res) => {
       } else if (err) {
         return res.send(err);
       }
-      const classifiedsadd = {
-        productImg: req.file.filename,
-        productName: req.body.productName,
-        productPrice: req.body.productPrice,
-        productCost: req.body.productCost,
-        productStetus: req.body.productStetus,
-        typeid: req.body.typeid,
-        unitkg: req.body.unitkg,
-        currency: req.body.currency,
-        // เพิ่มอื่นถ้าจะส่งไป ที่นี้
-      };
-      const sql = "INSERT INTO product SET ?";
-      // connection.query(sql, classifiedsadd, (err, results) => {
-      //   if (err) throw err;
-      //   res.json({ success: 1 });
-      // });
+      uploadFile(req, res);
     });
   } catch (err) {
     console.log(err);
   }
 };
-async function uploadFile(req) {
-  console.log(req);
-  const filePath = req.path;
+async function uploadFile(req, res) {
+  console.log(req.body);
+  const filePath = req.file.path;
   let fileMetaData = {
-    // name: "e.png",
+    name: req.file.originalname,
     parents: ["1ZRpuqXNlDAumdJiC7hDQgs8Oori3kXqO"],
   };
   let media = {
-    // mimeType: "image/png",
     body: fs.createReadStream(filePath),
   };
   try {
     const response = await drive.files.create({
       resource: fileMetaData,
-      // requestBody: {
-      //   name: "cat.png",
-      //   mimeType: "image/png",
-      // },
       media: media,
     });
-    console.log(response.data);
+    generatePublicUrl(response.data.id);
+    const classifiedsadd = {
+      productImg: response.data.id,
+      productName: req.body.productName,
+      productPrice: req.body.productPrice,
+      productCost: req.body.productCost,
+      productStetus: req.body.productStetus,
+      typeid: req.body.typeid,
+      unitkg: req.body.unitkg,
+      currency: req.body.currency,
+      // เพิ่มอื่นถ้าจะส่งไป ที่นี้
+    };
+    console.log(classifiedsadd);
+    const sql = "INSERT INTO product SET ?";
+    connection.query(sql, classifiedsadd, (err, results) => {
+      if (err) throw err;
+      res.json({ success: 1 });
+    });
   } catch (error) {
     console.log(error.massage);
+  }
+}
+async function generatePublicUrl(res) {
+  console.log(res);
+  try {
+    const fileId = res;
+    await drive.permissions.create({
+      fileId: fileId,
+      requestBody: {
+        role: "reader",
+        type: "anyone",
+      },
+    });
+    const result = await drive.files.get({
+      fileId: fileId,
+      fields: "webViewLink, webContentLink",
+    });
+    console.log(result.data);
+  } catch (error) {
+    console.log(error.message);
   }
 }
