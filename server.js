@@ -61,7 +61,7 @@ const getByOrderMember_id = require("./models/order/getByOrderMember_id");
 const putOrderPercentNBA = require("./models/order/putOrderPercentNBA");
 const postOrder = require("./models/order/postOrder.js");
 const getJoinOrder_Detail = require("./models/order/getJoinOrder_Detail.js");
-const putSlip = require("./models/order/putSlip.js");
+// const putSlip = require("./models/order/putSlip.js");
 const putStatusOrder = require("./models/order/putStatusOrder.js");
 const getJoinOrder_Member = require("./models/order/getJoinOrder_Member.js");
 const getJoinOrder_detail_cutarount = require("./models/order/getJoinOrder_detail_cutarount.js");
@@ -188,7 +188,7 @@ app.post("/postOrder", postOrder);
 
 app.get("/getJoinOrder_Detail", getJoinOrder_Detail);
 
-app.put("/putSlip", putSlip);
+// app.put("/putSlip", putSlip);
 
 app.put("/putStatusOrder", putStatusOrder);
 
