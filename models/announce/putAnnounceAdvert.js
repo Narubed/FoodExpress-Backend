@@ -39,24 +39,6 @@ module.exports = putAnnounceAdvert = (req, res) => {
       } else if (err) {
         return res.send(err);
       }
-      connection.query(
-        "UPDATE announve_advert SET announve_advert_image = ? WHERE announve_advert_id  = ?",
-        [req.file.filename, req.body.announve_advert_id],
-        (error, results, fields) => {
-          // if (error) throw error;
-          let message = "";
-          if (results.changedRows === 0) {
-            message = "order_foodexpress not found or data are updated";
-          } else {
-            message = "order_foodexpress successfully updated";
-          }
-          return res.send({
-            error: false,
-            data: results,
-            message: message,
-          });
-        }
-      );
       uploadFile(req, res);
     });
   } catch (err) {
