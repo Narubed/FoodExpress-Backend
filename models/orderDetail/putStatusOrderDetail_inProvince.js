@@ -1,6 +1,5 @@
 const connection = require("../../config/db.js")
 module.exports = putStatusOrderDetail_inProvince = (req, res) => {
-  console.log(req.body);
   let order_detail_id = req.body.order_detail_id;
   let order_status_in_province = req.body.order_status_in_province;
   // validation
