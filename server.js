@@ -14,6 +14,9 @@ const deleteMember = require("./models/member/deleteMember");
 const loginMember = require("./models/member/loginMember.model.js");
 const deleteMemberById = require("./models/member/deleteMemberById.js");
 const getMemberByid = require("./models/member/getMemberByid.js");
+const postMemberCardImg = require("./models/member/postMemberCardImg.js");
+const postMemberBookBankImg = require("./models/member/postMemberBookBankImg.js");
+const putChangePassword = require("./models/member/putChangePassword")
 
 const postProduct = require("./models/product/postProduct.js");
 const getAllProduct = require("./models/product/getAllProduct.js");
@@ -61,6 +64,13 @@ app.delete("/member/:id", deleteMember);
 
 app.delete("/memberId/:id", deleteMemberById);
 
+app.post("/postMemberCardImg", postMemberCardImg);
+
+app.post("/postMemberBookBankImg", postMemberBookBankImg);
+
+app.put("/putChangePassword", putChangePassword);
+
+// ----------------------------------------------------
 app.post("/imageupload", postProduct);
 
 app.get("/products", getAllProduct);
