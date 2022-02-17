@@ -44,6 +44,14 @@ const putRider = require("./models/rider_foodexpress/putRider.js");
 const getRiderById = require("./models/rider_foodexpress/getRiderById.js");
 const loginRider = require("./models/rider_foodexpress/loginRider.js");
 
+const CreateCutArount = require("./models/cut_arount/CreateCutArount.js");
+const getByOrderCutArountID = require("./models/cut_arount/getByOrderCutArountID.js");
+
+const getAnnounceSlide = require("./models/announce/getAnnounceSlide.js");
+const putAnnounceSlide = require("./models/announce/putAnnounceSlide.js");
+const putAnnounceAdvert = require("./models/announce/putAnnounceAdvert.js");
+const getAnnounceAdvert = require("./models/announce/getAnnounceAdvert");
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -124,12 +132,26 @@ app.post("/postRider", postRider);
 app.get("/getAllRider", getAllRider);
 
 app.delete("/deleteRider/:id", deleteRider);
+
 app.put("/putRider", putRider);
 
 app.get("/getRiderById/:id", getRiderById);
 
 app.post("/loginRider", loginRider);
 //----------------------------------------------------
+app.get("/getByOrderCutArountID/:id", getByOrderCutArountID);
+app.post("/CreateCutArount", CreateCutArount);
+//-----------------------------------------------------
+
+app.get("/getAnnounceSlide", getAnnounceSlide);
+
+app.put("/putAnnounceSlide", putAnnounceSlide);
+
+app.put("/putAnnounceAdvert", putAnnounceAdvert);
+
+app.get("/getAnnounceAdvert", getAnnounceAdvert);
+//----------------------------------------------------
+
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
 });
