@@ -66,8 +66,8 @@ const putStatusOrder = require("./models/order/putStatusOrder.js");
 const getJoinOrder_Member = require("./models/order/getJoinOrder_Member.js");
 const getJoinOrder_detail_cutarount = require("./models/order/getJoinOrder_detail_cutarount.js");
 
-// const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
-// const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
+const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
+const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
 // const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.js");
 // const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
 // const putStatusOrderDetail_INProvince = require("./models/orderDetail/putStatusOrderDetail_INProvince.js");
@@ -196,9 +196,9 @@ app.get("/getJoinOrder_Member", getJoinOrder_Member);
 
 app.get("/getJoinOrder_detail_cutarount", getJoinOrder_detail_cutarount);
 // //------------------------------------------------------------------
-// app.post("/postOrderDetail", postOrderDetail);
+app.post("/postOrderDetail", postOrderDetail);
 
-// app.get("/getByOrderDetail_id/:id", getByOrderDetail_id);
+app.get("/getByOrderDetail_id/:id", getByOrderDetail_id);
 
 // app.put("/putStatusOrderDetail", putStatusOrderDetail);
 
