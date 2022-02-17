@@ -55,22 +55,22 @@ const getAnnounceAdvert = require("./models/announce/getAnnounceAdvert");
 const getAllPrecent = require("./models/percentWallet/getAllPrecent.js");
 const putPercent = require("./models/percentWallet/putPercent.js");
 
-const getAllOrder = require("./models/order/getAllOrder");
-const getByOrderId = require("./models/order/getByOrderId");
-const getByOrderMember_id = require("./models/order/getByOrderMember_id");
-const putOrderPercentNBA = require("./models/order/putOrderPercentNBA");
-const postOrder = require("./models/order/postOrder.js");
-const getJoinOrder_Detail = require("./models/order/getJoinOrder_Detail.js");
-// const putSlip = require("./models/order/putSlip.js");
-const putStatusOrder = require("./models/order/putStatusOrder.js");
-const getJoinOrder_Member = require("./models/order/getJoinOrder_Member.js");
-const getJoinOrder_detail_cutarount = require("./models/order/getJoinOrder_detail_cutarount.js");
+// const getAllOrder = require("./models/order/getAllOrder");
+// const getByOrderId = require("./models/order/getByOrderId");
+// const getByOrderMember_id = require("./models/order/getByOrderMember_id");
+// const putOrderPercentNBA = require("./models/order/putOrderPercentNBA");
+// const postOrder = require("./models/order/postOrder.js");
+// const getJoinOrder_Detail = require("./models/order/getJoinOrder_Detail.js");
+// // const putSlip = require("./models/order/putSlip.js");
+// const putStatusOrder = require("./models/order/putStatusOrder.js");
+// const getJoinOrder_Member = require("./models/order/getJoinOrder_Member.js");
+// const getJoinOrder_detail_cutarount = require("./models/order/getJoinOrder_detail_cutarount.js");
 
-const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
-const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
-const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.js");
-const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
-const putStatusOrderDetail_INProvince = require("./models/orderDetail/putStatusOrderDetail_INProvince.js");
+// const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
+// const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
+// const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.js");
+// const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
+// const putStatusOrderDetail_INProvince = require("./models/orderDetail/putStatusOrderDetail_INProvince.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -176,35 +176,35 @@ app.get("/getAllPrecent", getAllPrecent);
 
 app.put("/putPercent", putPercent);
 //---------------------------------------------------------
-app.get("/getAllOrder", getAllOrder);
+// app.get("/getAllOrder", getAllOrder);
 
-app.get("/getByOrderId/:id", getByOrderId);
+// app.get("/getByOrderId/:id", getByOrderId);
 
-app.get("/getByOrderMember_id/:id", getByOrderMember_id);
+// app.get("/getByOrderMember_id/:id", getByOrderMember_id);
 
-app.put("/putOrderPercentNBA", putOrderPercentNBA);
+// app.put("/putOrderPercentNBA", putOrderPercentNBA);
 
-app.post("/postOrder", postOrder);
+// app.post("/postOrder", postOrder);
 
-app.get("/getJoinOrder_Detail", getJoinOrder_Detail);
+// app.get("/getJoinOrder_Detail", getJoinOrder_Detail);
 
-// app.put("/putSlip", putSlip);
+// // app.put("/putSlip", putSlip);
 
-app.put("/putStatusOrder", putStatusOrder);
+// app.put("/putStatusOrder", putStatusOrder);
 
-app.get("/getJoinOrder_Member", getJoinOrder_Member);
+// app.get("/getJoinOrder_Member", getJoinOrder_Member);
 
-app.get("/getJoinOrder_detail_cutarount", getJoinOrder_detail_cutarount);
-//------------------------------------------------------------------
-app.post("/postOrderDetail", postOrderDetail);
+// app.get("/getJoinOrder_detail_cutarount", getJoinOrder_detail_cutarount);
+// //------------------------------------------------------------------
+// app.post("/postOrderDetail", postOrderDetail);
 
-app.get("/getByOrderDetail_id/:id", getByOrderDetail_id);
+// app.get("/getByOrderDetail_id/:id", getByOrderDetail_id);
 
-app.put("/putStatusOrderDetail", putStatusOrderDetail);
+// app.put("/putStatusOrderDetail", putStatusOrderDetail);
 
-app.put("/putCutArountStatus", putCutArountStatus);
+// app.put("/putCutArountStatus", putCutArountStatus);
 
-app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_INProvince);
+// app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_INProvince);
 //----------------------------------------------------------------------
 
 app.listen(PORT, () => {
