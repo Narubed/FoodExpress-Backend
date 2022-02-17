@@ -18,6 +18,8 @@ const postMemberCardImg = require("./models/member/postMemberCardImg.js");
 const postMemberBookBankImg = require("./models/member/postMemberBookBankImg.js");
 const putChangePassword = require("./models/member/putChangePassword")
 
+const deleteImageName = require("./models/product/deleteImageName.js");
+
 const postProduct = require("./models/product/postProduct.js");
 const getAllProduct = require("./models/product/getAllProduct.js");
 const deleteProduct = require("./models/product/deleteProduct.js");
@@ -70,6 +72,8 @@ app.post("/postMemberBookBankImg", postMemberBookBankImg);
 
 app.put("/putChangePassword", putChangePassword);
 
+// ----------------------------------------------------
+app.delete("/deleteimage/:id", deleteImageName);
 // ----------------------------------------------------
 app.post("/imageupload", postProduct);
 

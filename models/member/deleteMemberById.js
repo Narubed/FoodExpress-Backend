@@ -17,7 +17,7 @@ module.exports = deleteMembers = (req, res) => {
         if (results.affectedRows === 0) {
           message = 1;
         } else {
-          message = "Book successfully deleted";
+          message = "deleteMembers successfully ";
         }
         console.log(message);
         return res.send({
