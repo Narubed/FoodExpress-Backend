@@ -37,7 +37,12 @@ const getAllCompany = require("./models/company/getAllCompany.js");
 const putCompany = require("./models/company/putCompany.js");
 const deleteCompany = require("./models/company/deleteCompany.js");
 
-
+const postRider = require("./models/rider_foodexpress/postRider.js");
+const getAllRider = require("./models/rider_foodexpress/getAllRider.js");
+const deleteRider = require("./models/rider_foodexpress/deleteRider.js");
+const putRider = require("./models/rider_foodexpress/putRider.js");
+const getRiderById = require("./models/rider_foodexpress/getRiderById.js");
+const loginRider = require("./models/rider_foodexpress/loginRider.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -113,7 +118,18 @@ app.get("/getAllCompany", getAllCompany);
 app.put("/putCompany", putCompany);
 
 app.delete("/deleteCompany/:id", deleteCompany);
+//-----------------------------------------------------
+app.post("/postRider", postRider);
 
+app.get("/getAllRider", getAllRider);
+
+app.delete("/deleteRider/:id", deleteRider);
+app.put("/putRider", putRider);
+
+app.get("/getRiderById/:id", getRiderById);
+
+app.post("/loginRider", loginRider);
+//----------------------------------------------------
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
 });
