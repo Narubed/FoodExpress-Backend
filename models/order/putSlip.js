@@ -27,7 +27,8 @@ const storage = multer.diskStorage({
     console.log(Date.now());
   },
 });
-module.exports = putAnnounceAdvert = (req, res) => {
+module.exports = putSlip = (req, res) => {
+  console.log(req.body);
   try {
     // 'avatar' is the name of our file input field in the HTML form
     let upload = multer({ storage: storage }).single("avatar");
@@ -45,7 +46,6 @@ module.exports = putAnnounceAdvert = (req, res) => {
     console.log(err);
   }
 };
-
 async function uploadFile(req, res) {
   const filePath = req.file.path;
   let fileMetaData = {
@@ -62,8 +62,8 @@ async function uploadFile(req, res) {
     });
     generatePublicUrl(response.data.id);
     connection.query(
-      "UPDATE announve_advert SET announve_advert_image = ? WHERE announve_advert_id  = ?",
-      [response.data.id, req.body.announve_advert_id],
+      "UPDATE order_foodexpress SET order_slip = ?, order_status = ? WHERE order_id = ?",
+      [response.data.id, req.body.order_status, req.body.order_id],
       (error, results, fields) => {
         // if (error) throw error;
         let message = "";
