@@ -70,7 +70,7 @@ const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
 const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
 const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.js");
 const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
-// const putStatusOrderDetail_INProvince = require("./models/orderDetail/putStatusOrderDetail_INProvince.js");
+const putStatusOrderDetail_INProvince = require("./models/orderDetail/putStatusOrderDetail_INProvince.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -204,7 +204,7 @@ app.put("/putStatusOrderDetail", putStatusOrderDetail);
 
 app.put("/putCutArountStatus", putCutArountStatus);
 
-// app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_INProvince);
+app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_INProvince);
 //----------------------------------------------------------------------
 
 app.listen(PORT, () => {
