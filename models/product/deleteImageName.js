@@ -41,7 +41,7 @@ module.exports = deleteImageName = async (req, res) => {
     } catch (error) {
       console.log(error.message);
       return res.send({
-        error: true,
+        error: false,
         message: "Delete Image",
       });
     }

@@ -32,6 +32,13 @@ const putProductType = require("./models/productType/putProductType.js");
 const deleteProductType = require("./models/productType/deleteProductType.js");
 const getJoinProductType = require("./models/product/getJoinProductType.js");
 
+const postCompany = require("./models/company/postCompany.js");
+const getAllCompany = require("./models/company/getAllCompany.js");
+const putCompany = require("./models/company/putCompany.js");
+const deleteCompany = require("./models/company/deleteCompany.js");
+
+
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -72,6 +79,7 @@ app.post("/postMemberBookBankImg", postMemberBookBankImg);
 
 app.put("/putChangePassword", putChangePassword);
 
+app.post("/login", loginMember);
 // ----------------------------------------------------
 app.delete("/deleteimage/:id", deleteImageName);
 // ----------------------------------------------------
@@ -84,9 +92,7 @@ app.delete("/product/:id", deleteProduct);
 app.get("/product/:id", getByidProduct);
 
 app.put("/product", putProduct);
-
-app.post("/login", loginMember);
-
+//----------------------------------------------------
 app.post("/producttype", posrProductType);
 
 app.get("/producttypes", getAllProductType);
@@ -98,6 +104,15 @@ app.put("/producttype", putProductType);
 app.delete("/producttype/:id", deleteProductType);
 
 app.get("/getJoinProductType", getJoinProductType);
+
+//----------------------------------------------------
+app.post("/postCompany", postCompany);
+
+app.get("/getAllCompany", getAllCompany);
+
+app.put("/putCompany", putCompany);
+
+app.delete("/deleteCompany/:id", deleteCompany);
 
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
