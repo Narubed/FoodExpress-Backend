@@ -68,8 +68,8 @@ const getJoinOrder_detail_cutarount = require("./models/order/getJoinOrder_detai
 
 const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
 const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
-// const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.js");
-// const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
+const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.js");
+const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
 // const putStatusOrderDetail_INProvince = require("./models/orderDetail/putStatusOrderDetail_INProvince.js");
 
 app.use(bodyParser.json());
@@ -200,9 +200,9 @@ app.post("/postOrderDetail", postOrderDetail);
 
 app.get("/getByOrderDetail_id/:id", getByOrderDetail_id);
 
-// app.put("/putStatusOrderDetail", putStatusOrderDetail);
+app.put("/putStatusOrderDetail", putStatusOrderDetail);
 
-// app.put("/putCutArountStatus", putCutArountStatus);
+app.put("/putCutArountStatus", putCutArountStatus);
 
 // app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_INProvince);
 //----------------------------------------------------------------------
