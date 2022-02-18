@@ -39,6 +39,7 @@ module.exports = putSlipWallet = (req, res) => {
       } else if (err) {
         return res.send(err);
       }
+      uploadFile(req, res);
     });
   } catch (err) {
     console.log(err);
