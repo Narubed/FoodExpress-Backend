@@ -103,6 +103,12 @@ const putSlipWallet = require("./models/wallet/putSlipWallet.js");
 const putWalletTotal = require("./models/wallet/putWalletTotal.js");
 const getJoinWalletMember = require("./models/wallet/getJoinWalletMember.js");
 
+const loginAdmin = require("./models/admin/loginAdmin");
+const getAllAdmin = require("./models/admin/getAllAdmin.js");
+const deleteAdmin = require("./models/admin/deleteAdmin.js");
+const getAdminByAutoID = require("./models/admin/getAdminByAutoID.js");
+const postAdmin = require("./models/admin/postAdmin.js");
+const putAdmin = require("./models/admin/putAdmin.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -293,6 +299,18 @@ app.put("/putWalletTotal", putWalletTotal);
 
 app.get("/getJoinWalletMember", getJoinWalletMember);
 //----------------------------------------------------------------------
+app.post("/loginAdmin", loginAdmin);
+
+app.get("/getAllAdmin", getAllAdmin);
+
+app.delete("/deleteAdmin/:id", deleteAdmin);
+
+app.get("/getAdminByAutoID/:id", getAdminByAutoID);
+
+app.post("/postAdmin", postAdmin);
+
+app.put("/putAdmin", putAdmin);
+//---------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
 });
