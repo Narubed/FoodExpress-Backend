@@ -6,7 +6,7 @@ module.exports = putAdmin = (req, res) => {
   let admin_first_name = req.body.admin_first_name;
   let admin_last_name = req.body.admin_last_name;
   // validation
-  if (!rider_id || !rider_first_name) {
+  if (!admin_auto_id || !admin_first_name) {
     return res.status(400).send({
       error: true,
       message: "Please provide NOt putAdmin Sumone.",
