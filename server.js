@@ -86,6 +86,24 @@ const putStatusDeliveryProvice = require("./models/reportDelivery/putStatusDeliv
 const portDeliveryDetailInProvice = require("./models/reportDeliveryDetail/portDeliveryDetailInProvice.js");
 const getDeliveryDetailByDeliveryID = require("./models/reportDeliveryDetail/getDeliveryDetailByDeliveryID.js");
 
+const postRiderOrderExpress = require("./models/rider_order_express/postRiderOrderExpress.js");
+const getAllRiderOrderExpressJoinMember = require("./models/rider_order_express/getAllRiderOrderExpressJoinMember.js");
+const getAllOrderExpressJoinRider = require("./models/rider_order_express/getAllOrderExpressJoinRider.js");
+const putStatusOrderRider = require("./models/rider_order_express/putStatusOrderRider.js");
+
+const postStockProductMember = require("./models/stockProductMember/postStockProductMember");
+const getStockProductMemberByUserID = require("./models/stockProductMember/getStockProductMemberByUserID.js");
+const putAmountStockProductMember = require("./models/stockProductMember/putAmountStockProductMember.js");
+const getStockMemberJoinProduct = require("./models/stockProductMember/getStockMemberJoinProduct.js");
+
+const getAllWallet = require("./models/wallet/getAllWallet.js");
+const postWallet = require("./models/wallet/postWallet.js");
+const getWalletById = require("./models/wallet/getWalletById.js");
+const putSlipWallet = require("./models/wallet/putSlipWallet.js");
+const putWalletTotal = require("./models/wallet/putWalletTotal.js");
+const getJoinWalletMember = require("./models/wallet/getJoinWalletMember.js");
+
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -247,8 +265,34 @@ app.put("/putStatusDeliveryProvice", putStatusDeliveryProvice);
 app.post("/portDeliveryDetailInProvice", portDeliveryDetailInProvice);
 app.get("/getDeliveryDetailByDeliveryID/:id", getDeliveryDetailByDeliveryID);
 //-------------------------------------------------------------
+app.post("/postRiderOrderExpress", postRiderOrderExpress);
+app.get(
+  "/getAllRiderOrderExpressJoinMember",
+  getAllRiderOrderExpressJoinMember
+);
+app.get("/getAllOrderExpressJoinRider", getAllOrderExpressJoinRider);
+app.put("/putStatusOrderRider", putStatusOrderRider);
+//----------------------------------------------------------------
+app.post("/postStockProductMember", postStockProductMember);
 
+app.get("/getStockProductMemberByUserID/:id", getStockProductMemberByUserID);
 
+app.put("/putAmountStockProductMember", putAmountStockProductMember);
+
+app.get("/getStockMemberJoinProduct", getStockMemberJoinProduct);
+//---------------------------------------------------------------------------
+app.get("/getAllWallet", getAllWallet);
+
+app.post("/postWallet", postWallet);
+
+app.get("/getWalletById/:id", getWalletById);
+
+app.put("/putSlipWallet", putSlipWallet);
+
+app.put("/putWalletTotal", putWalletTotal);
+
+app.get("/getJoinWalletMember", getJoinWalletMember);
+//----------------------------------------------------------------------
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
 });
