@@ -76,6 +76,16 @@ const portReportOrderMember = require("./models/report_order_member/portReportOr
 const getAllReportOrderMember = require("./models/report_order_member/getAllReportOrderMember.js");
 const getReportOrderMemberJoinProduct = require("./models/report_order_member/getReportOrderMemberJoinProduct.js");
 
+const getDeliveryByUserID = require("./models/reportDelivery/getDeliveryByUserID.js");
+const getJoinDeliveryDetailProvice = require("./models/reportDelivery/getJoinDeliveryDetailProvice.js");
+const getJoinDeliveryProviceAndMemberReceiver = require("./models/reportDelivery/getJoinDeliveryProviceAndMemberReceiver.js");
+const getJoinDeliveryProviceAndMemberDelivery = require("./models/reportDelivery/getJoinDeliveryProviceAndMemberDelivery.js");
+const portDeliveryInProvice = require("./models/reportDelivery/portDeliveryInProvice.js");
+const putStatusDeliveryProvice = require("./models/reportDelivery/putStatusDeliveryProvice.js");
+
+const portDeliveryDetailInProvice = require("./models/reportDeliveryDetail/portDeliveryDetailInProvice.js");
+const getDeliveryDetailByDeliveryID = require("./models/reportDeliveryDetail/getDeliveryDetailByDeliveryID.js");
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -216,6 +226,28 @@ app.get("/getAllReportOrderMember", getAllReportOrderMember);
 
 app.get("/getReportOrderMemberJoinProduct", getReportOrderMemberJoinProduct);
 //-------------------------------------------------------------------------
+app.get("/getDeliveryByUserID/:id", getDeliveryByUserID);
+
+app.get("/getJoinDeliveryDetailProvice", getJoinDeliveryDetailProvice);
+
+app.get(
+  "/getJoinDeliveryProviceAndMemberReceiver",
+  getJoinDeliveryProviceAndMemberReceiver
+);
+
+app.get(
+  "/getJoinDeliveryProviceAndMemberDelivery",
+  getJoinDeliveryProviceAndMemberDelivery
+);
+
+app.post("/portDeliveryInProvice", portDeliveryInProvice);
+
+app.put("/putStatusDeliveryProvice", putStatusDeliveryProvice);
+//--------------------------------------------------------
+app.post("/portDeliveryDetailInProvice", portDeliveryDetailInProvice);
+app.get("/getDeliveryDetailByDeliveryID/:id", getDeliveryDetailByDeliveryID);
+//-------------------------------------------------------------
+
 
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
