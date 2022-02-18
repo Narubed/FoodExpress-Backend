@@ -72,6 +72,10 @@ const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.
 const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
 const putStatusOrderDetail_inProvince = require("./models/orderDetail/putStatusOrderDetail_inProvince.js");
 
+const portReportOrderMember = require("./models/report_order_member/portReportOrderMember.js");
+const getAllReportOrderMember = require("./models/report_order_member/getAllReportOrderMember.js");
+const getReportOrderMemberJoinProduct = require("./models/report_order_member/getReportOrderMemberJoinProduct.js");
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -206,6 +210,12 @@ app.put("/putCutArountStatus", putCutArountStatus);
 
 app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_inProvince);
 //----------------------------------------------------------------------
+app.post("/portReportOrderMember", portReportOrderMember);
+
+app.get("/getAllReportOrderMember", getAllReportOrderMember);
+
+app.get("/getReportOrderMemberJoinProduct", getReportOrderMemberJoinProduct);
+//-------------------------------------------------------------------------
 
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
