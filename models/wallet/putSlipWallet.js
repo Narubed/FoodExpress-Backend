@@ -39,24 +39,6 @@ module.exports = putSlipWallet = (req, res) => {
       } else if (err) {
         return res.send(err);
       }
-      connection.query(
-        "UPDATE wallet_express SET  wallet_slip = ?, wallet_status = ? WHERE wallet_id = ?",
-        [req.file.filename, req.body.wallet_status, req.body.wallet_id],
-        (error, results, fields) => {
-          // if (error) throw error;
-          let message = "";
-          if (results.changedRows === 0) {
-            message = "putSlipWallet not found or data are updated";
-          } else {
-            message = "putSlipWallet successfully updated";
-          }
-          return res.send({
-            error: false,
-            data: results,
-            message: message,
-          });
-        }
-      );
     });
   } catch (err) {
     console.log(err);
