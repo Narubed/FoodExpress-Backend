@@ -46,6 +46,8 @@ const loginRider = require("./models/rider_foodexpress/loginRider.js");
 
 const CreateCutArount = require("./models/cut_arount/CreateCutArount.js");
 const getByOrderCutArountID = require("./models/cut_arount/getByOrderCutArountID.js");
+const getAllCutArount = require("./models/cut_arount/getAllCutArount.js");
+
 
 const getAnnounceSlide = require("./models/announce/getAnnounceSlide.js");
 const putAnnounceSlide = require("./models/announce/putAnnounceSlide.js");
@@ -200,6 +202,9 @@ app.post("/loginRider", loginRider);
 app.get("/getByOrderCutArountID/:id", getByOrderCutArountID);
 
 app.post("/CreateCutArount", CreateCutArount);
+
+app.get("/getAllCutArount", getAllCutArount)
+
 //-----------------------------------------------------
 
 app.get("/getAnnounceSlide", getAnnounceSlide);
