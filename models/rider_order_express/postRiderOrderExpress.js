@@ -6,6 +6,7 @@ module.exports = postRiderOrderExpress = (req, res) => {
     order_rider_product_id: req.body.order_rider_product_id,
     order_rider_product_name: req.body.order_rider_product_name,
     order_rider_Amount: req.body.order_rider_Amount,
+    order_rider_currency: req.body.order_rider_currency, // ใหม่
     order_rider_company_name: req.body.order_rider_company_name,
     order_rider_company_company_address:
       req.body.order_rider_company_company_address,
