@@ -19,7 +19,7 @@ module.exports = putCompany = (req, res) => {
     });
   } else {
     connection.query(
-      "UPDATE company SET  company_name = ?, company_tel = ?,book_name = ?,book_number = ?, company_address = ? WHERE company_id = ?",
+      "UPDATE company SET  company_name = ?, company_tel = ?,book_name = ?,book_number = ?, company_address = ?company_login_id= ?, company_login_pw= ?, company_taxpayer_number= ?, company_line_id= ? WHERE company_id = ?",
       [
         company_name,
         company_tel,
@@ -27,6 +27,10 @@ module.exports = putCompany = (req, res) => {
         book_number,
         company_address,
         company_id,
+        company_login_id,
+        company_login_pw,
+        company_taxpayer_number,
+        company_line_id,
       ],
       (error, results, fields) => {
         let message = "";
