@@ -48,7 +48,6 @@ const CreateCutArount = require("./models/cut_arount/CreateCutArount.js");
 const getByOrderCutArountID = require("./models/cut_arount/getByOrderCutArountID.js");
 const getAllCutArount = require("./models/cut_arount/getAllCutArount.js");
 
-
 const getAnnounceSlide = require("./models/announce/getAnnounceSlide.js");
 const putAnnounceSlide = require("./models/announce/putAnnounceSlide.js");
 const putAnnounceAdvert = require("./models/announce/putAnnounceAdvert.js");
@@ -112,6 +111,19 @@ const deleteAdmin = require("./models/admin/deleteAdmin.js");
 const getAdminByAutoID = require("./models/admin/getAdminByAutoID.js");
 const postAdmin = require("./models/admin/postAdmin.js");
 const putAdmin = require("./models/admin/putAdmin.js");
+
+const postPercentOrderDetail = require("./models/percent_order_detail/postPercentOrderDetail");
+const getJoin_order_detail_member = require("./models/percent_order_detail/getJoin_order_detail_member.js");
+
+const postWalletMember = require("./models/walletMember/postWalletMember");
+const getWalletMemberById = require("./models/walletMember/getWalletMemberById");
+const getAllWalletMember = require("./models/walletMember/getAllWalletMember.js");
+const putWalletMemberTotal = require("./models/walletMember/putWalletMemberTotal.js");
+const getWalletJoinMembers = require("./models/walletMember/getWalletJoinMembers");
+
+const portReportWalletMember = require("./models/reportWalletMember/portReportWalletMember");
+const getReportWalletJoinMembers = require("./models/reportWalletMember/getReportWalletJoinMembers.js");
+const putSlipWalletMember = require("./models/walletMember/putSlipWalletMember.js");
 
 app.use(bodyParser.json());
 app.use(
@@ -204,7 +216,7 @@ app.get("/getByOrderCutArountID/:id", getByOrderCutArountID);
 
 app.post("/CreateCutArount", CreateCutArount);
 
-app.get("/getAllCutArount", getAllCutArount)
+app.get("/getAllCutArount", getAllCutArount);
 
 //-----------------------------------------------------
 
@@ -320,6 +332,28 @@ app.post("/postAdmin", postAdmin);
 
 app.put("/putAdmin", putAdmin);
 //---------------------------------------------------------------------
+app.post("/postPercentOrderDetail", postPercentOrderDetail);
+
+app.get("/getJoin_order_detail_member", getJoin_order_detail_member);
+//----------------------------------------------------------------------
+app.post("/postWalletMember", postWalletMember);
+
+app.get("/getWalletMemberById/:id", getWalletMemberById);
+
+app.get("/getAllWalletMember", getAllWalletMember);
+
+app.put("/putWalletMemberTotal", putWalletMemberTotal);
+
+app.get("/getWalletJoinMembers", getWalletJoinMembers);
+//----------------------------------------------------------------------
+app.post("/portReportWalletMember", portReportWalletMember);
+
+app.get("/getReportWalletJoinMembers", getReportWalletJoinMembers);
+
+app.put("/putSlipWalletMember", putSlipWalletMember);
+
+//------------------------------------------------------------------------
+
 app.listen(PORT, () => {
   console.log("Node App is running on port =", PORT);
 });

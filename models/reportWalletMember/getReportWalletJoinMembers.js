@@ -1,20 +1,21 @@
+
 const dbCon = require("../../config/db.js");
-module.exports = getJoinOrder_Member = async (req, res) => {
+module.exports = getReportWalletJoinMembers = async (req, res) => {
   //     SELECT *
   // FROM product
   // RIGHT JOIN producttype
   // ON product.typeid = producttype.id;
 
   dbCon.query(
-    "SELECT * FROM order_foodexpress INNER JOIN order_detail_foodexpress ON order_foodexpress.order_id = order_detail_foodexpress.order_id INNER JOIN member ON order_detail_foodexpress.order_member_id =  member.userId",
+    "SELECT * FROM report_wallet_member_express INNER JOIN member ON report_wallet_member_express.report_wallet_member_id = member.userId",
     (error, results, fields) => {
       // if (error) throw error;
-      console.log("get All getJoinOrder_Member");
+      console.log("get All getReportWalletJoinMembers");
       let message = "";
       if (results === undefined || results.length == 0) {
-        message = "product table is getJoinOrder_Member";
+        message = "product table is getReportWalletJoinMembers";
       } else {
-        message = "Successfully retrieved all v";
+        message = "Successfully retrieved all getReportWalletJoinMembers";
       }
       // console.log(results)
       return res.send({
