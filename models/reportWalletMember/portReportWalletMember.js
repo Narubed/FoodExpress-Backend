@@ -3,6 +3,8 @@ module.exports = portReportWalletMember = (req, res) => {
   console.log(req.body);
   const classifiedsadd = {
     report_wallet_member_id: req.body.report_wallet_member_id,
+    report_wallet_member_older_total: req.body.report_wallet_member_older_total,
+    report_wallet_member_3: req.body.report_wallet_member_3,
     report_wallet_member_total: req.body.report_wallet_member_total,
     report_wallet_member_status: req.body.report_wallet_member_status,
     report_wallet_member_slip: "",

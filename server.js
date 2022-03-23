@@ -66,6 +66,7 @@ const putSlip = require("./models/order/putSlip.js");
 const putStatusOrder = require("./models/order/putStatusOrder.js");
 const getJoinOrder_Member = require("./models/order/getJoinOrder_Member.js");
 const getJoinOrder_detail_cutarount = require("./models/order/getJoinOrder_detail_cutarount.js");
+const getJoinOrderAndMember = require("./models/order/getJoinOrderAndMember.js");
 
 const postOrderDetail = require("./models/orderDetail/postOrderDetail.js");
 const getByOrderDetail_id = require("./models/orderDetail/getByOrderDetail_id.js");
@@ -89,7 +90,7 @@ const portDeliveryDetailInProvice = require("./models/reportDeliveryDetail/portD
 const getDeliveryDetailByDeliveryID = require("./models/reportDeliveryDetail/getDeliveryDetailByDeliveryID.js");
 
 const postRiderOrderExpress = require("./models/rider_order_express/postRiderOrderExpress.js");
-const getAllRiderOrderExpressJoinMember = require("./models/rider_order_express/getAllRiderOrderExpressJoinMember.js");
+const getAllRiderOrder = require("./models/rider_order_express/getAllRiderOrder.js");
 const getAllOrderExpressJoinRider = require("./models/rider_order_express/getAllOrderExpressJoinRider.js");
 const putStatusOrderRider = require("./models/rider_order_express/putStatusOrderRider.js");
 
@@ -251,6 +252,7 @@ app.put("/putStatusOrder", putStatusOrder);
 app.get("/getJoinOrder_Member", getJoinOrder_Member);
 
 app.get("/getJoinOrder_detail_cutarount", getJoinOrder_detail_cutarount);
+app.get("/getJoinOrderAndMember", getJoinOrderAndMember);
 // //------------------------------------------------------------------
 app.post("/postOrderDetail", postOrderDetail);
 
@@ -293,10 +295,7 @@ app.post("/portDeliveryDetailInProvice", portDeliveryDetailInProvice);
 app.get("/getDeliveryDetailByDeliveryID/:id", getDeliveryDetailByDeliveryID);
 //-------------------------------------------------------------
 app.post("/postRiderOrderExpress", postRiderOrderExpress);
-app.get(
-  "/getAllRiderOrderExpressJoinMember",
-  getAllRiderOrderExpressJoinMember
-);
+app.get("/getAllRiderOrder", getAllRiderOrder);
 app.get("/getAllOrderExpressJoinRider", getAllOrderExpressJoinRider);
 app.put("/putStatusOrderRider", putStatusOrderRider);
 //----------------------------------------------------------------

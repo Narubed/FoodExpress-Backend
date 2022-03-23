@@ -10,6 +10,7 @@ module.exports = portReportOrderMember = (req, res) => {
     report_order_product_amount_in: req.body.report_order_product_amount_in,
     report_order_product_amount_out: req.body.report_order_product_amount_out,
     report_order_status: req.body.report_order_status,
+    // report_order_date_timestamp
   };
   const sql = "INSERT INTO report_order_member SET ?";
   connection.query(sql, classifiedsadd, (err, results) => {

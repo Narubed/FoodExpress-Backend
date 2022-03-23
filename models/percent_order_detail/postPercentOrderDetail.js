@@ -11,6 +11,12 @@ module.exports = postPercentOrderDetail = (req, res) => {
     percent_order_detail_provice: req.body.percent_order_detail_provice,
     percent_order_detail_nba: req.body.percent_order_detail_nba,
     percent_value_detail: req.body.percent_value_detail,
+    percent_older_value_detail_subdistrict:
+      req.body.percent_older_value_detail_subdistrict,
+    percent_older_value_detail_district:
+      req.body.percent_older_value_detail_district,
+    percent_older_value_detail_provice:
+      req.body.percent_older_value_detail_provice,
     percent_value_detail_subdistrict: req.body.percent_value_detail_subdistrict,
     percent_value_detail_district: req.body.percent_value_detail_district,
     percent_value_detail_provice: req.body.percent_value_detail_provice,
