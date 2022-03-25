@@ -74,6 +74,7 @@ const putStatusOrderDetail = require("./models/orderDetail/putStatusOrderDetail.
 const putCutArountStatus = require("./models/orderDetail/putCutArountStatus.js");
 const putStatusOrderDetail_inProvince = require("./models/orderDetail/putStatusOrderDetail_inProvince.js");
 const getByCutArountID = require("./models/orderDetail/getByCutArountID.js");
+const putAmountOrderDetail = require("./models/orderDetail/putAmountOrderDetail.js");
 
 const portReportOrderMember = require("./models/report_order_member/portReportOrderMember.js");
 const getAllReportOrderMember = require("./models/report_order_member/getAllReportOrderMember.js");
@@ -265,6 +266,8 @@ app.put("/putCutArountStatus", putCutArountStatus);
 app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_inProvince);
 
 app.get("/getByCutArountID/:id", getByCutArountID);
+
+app.put("/putAmountOrderDetail", putAmountOrderDetail);
 
 //----------------------------------------------------------------------
 app.post("/portReportOrderMember", portReportOrderMember);
