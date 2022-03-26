@@ -6,6 +6,8 @@ require("dotenv").config();
 
 const cors = require("cors");
 
+const postReportActionAdmin = require("./models/reportActionAdmin/postReportActionAdmin");
+
 const getMembers = require("./models/member/getAllMember.model.js");
 const postMember = require("./models/member/postMember.model.js");
 const getByIdMemmber = require("./models/member/getByIdMember.model.js");
@@ -147,6 +149,8 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post("/postReportActionAdmin", postReportActionAdmin);
+//---------------------------------------------------------
 app.get("/members", getMembers);
 
 app.post("/member", postMember);
