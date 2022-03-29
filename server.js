@@ -142,6 +142,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 // homepage route
+const api = "/api/foodexpress";
 app.get("/", (req, res) => {
   return res.send({
     error: false,
@@ -150,216 +151,228 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/postReportActionAdmin", postReportActionAdmin);
+app.post(api + "/postReportActionAdmin", postReportActionAdmin);
 
-app.get("/getReportAdminJoinAdmin", getReportAdminJoinAdmin);
+app.get(api + "/getReportAdminJoinAdmin", getReportAdminJoinAdmin);
 //---------------------------------------------------------
-app.get("/members", getMembers);
+app.get(`${api}/members`, getMembers);
 
-app.post("/member", postMember);
+app.post(api + "/member", postMember);
 
-app.get("/member/:id", getByIdMemmber);
+app.get(api + "/member/:id", getByIdMemmber);
 
-app.get("/getMemberByid/:id", getMemberByid);
+app.get(api + "/getMemberByid/:id", getMemberByid);
 
-app.put("/member", putMembers);
+app.put(api + "/member", putMembers);
 
-app.delete("/member/:id", deleteMember);
+app.delete(api + "/member/:id", deleteMember);
 
-app.delete("/memberId/:id", deleteMemberById);
+app.delete(api + "/memberId/:id", deleteMemberById);
 
-app.post("/postMemberCardImg", postMemberCardImg);
+app.post(api + "/postMemberCardImg", postMemberCardImg);
 
-app.post("/postMemberBookBankImg", postMemberBookBankImg);
+app.post(api + "/postMemberBookBankImg", postMemberBookBankImg);
 
-app.put("/putChangePassword", putChangePassword);
+app.put(api + "/putChangePassword", putChangePassword);
 
-app.post("/login", loginMember);
+app.post(api + "/login", loginMember);
 // ----------------------------------------------------
-app.delete("/deleteimage/:id", deleteImageName);
+app.delete(api + "/deleteimage/:id", deleteImageName);
 // ----------------------------------------------------
-app.post("/imageupload", postProduct);
+app.post(api + "/imageupload", postProduct);
 
-app.get("/products", getAllProduct);
+app.get(api + "/products", getAllProduct);
 
-app.delete("/product/:id", deleteProduct);
+app.delete(api + "/product/:id", deleteProduct);
 
-app.get("/product/:id", getByidProduct);
+app.get(api + "/product/:id", getByidProduct);
 
-app.put("/product", putProduct);
+app.put(api + "/product", putProduct);
 //----------------------------------------------------
-app.post("/producttype", posrProductType);
+app.post(api + "/producttype", posrProductType);
 
-app.get("/producttypes", getAllProductType);
+app.get(api + "/producttypes", getAllProductType);
 
-app.get("/producttype/:id", getByIdProductType);
+app.get(api + "/producttype/:id", getByIdProductType);
 
-app.put("/producttype", putProductType);
+app.put(api + "/producttype", putProductType);
 
-app.delete("/producttype/:id", deleteProductType);
+app.delete(api + "/producttype/:id", deleteProductType);
 
-app.get("/getJoinProductType", getJoinProductType);
+app.get(api + "/getJoinProductType", getJoinProductType);
 
 //----------------------------------------------------
-app.post("/postCompany", postCompany);
+app.post(api + "/postCompany", postCompany);
 
-app.get("/getAllCompany", getAllCompany);
+app.get(api + "/getAllCompany", getAllCompany);
 
-app.put("/putCompany", putCompany);
+app.put(api + "/putCompany", putCompany);
 
-app.delete("/deleteCompany/:id", deleteCompany);
+app.delete(api + "/deleteCompany/:id", deleteCompany);
 //-----------------------------------------------------
-app.post("/postRider", postRider);
+app.post(api + "/postRider", postRider);
 
-app.get("/getAllRider", getAllRider);
+app.get(api + "/getAllRider", getAllRider);
 
-app.delete("/deleteRider/:id", deleteRider);
+app.delete(api + "/deleteRider/:id", deleteRider);
 
-app.put("/putRider", putRider);
+app.put(api + "/putRider", putRider);
 
-app.get("/getRiderById/:id", getRiderById);
+app.get(api + "/getRiderById/:id", getRiderById);
 
-app.post("/loginRider", loginRider);
+app.post(api + "/loginRider", loginRider);
 //----------------------------------------------------
-app.get("/getByOrderCutArountID/:id", getByOrderCutArountID);
+app.get(api + "/getByOrderCutArountID/:id", getByOrderCutArountID);
 
-app.post("/CreateCutArount", CreateCutArount);
+app.post(api + "/CreateCutArount", CreateCutArount);
 
-app.get("/getAllCutArount", getAllCutArount);
+app.get(api + "/getAllCutArount", getAllCutArount);
 
 //-----------------------------------------------------
 
-app.get("/getAnnounceSlide", getAnnounceSlide);
+app.get(api + "/getAnnounceSlide", getAnnounceSlide);
 
-app.put("/putAnnounceSlide", putAnnounceSlide);
+app.put(api + "/putAnnounceSlide", putAnnounceSlide);
 
-app.put("/putAnnounceAdvert", putAnnounceAdvert);
+app.put(api + "/putAnnounceAdvert", putAnnounceAdvert);
 
-app.get("/getAnnounceAdvert", getAnnounceAdvert);
+app.get(api + "/getAnnounceAdvert", getAnnounceAdvert);
 //----------------------------------------------------
-app.get("/getAllPrecent", getAllPrecent);
+app.get(api + "/getAllPrecent", getAllPrecent);
 
-app.put("/putPercent", putPercent);
+app.put(api + "/putPercent", putPercent);
 //---------------------------------------------------------
-app.get("/getAllOrder", getAllOrder);
+app.get(api + "/getAllOrder", getAllOrder);
 
-app.get("/getByOrderId/:id", getByOrderId);
+app.get(api + "/getByOrderId/:id", getByOrderId);
 
-app.get("/getByOrderMember_id/:id", getByOrderMember_id);
+app.get(api + "/getByOrderMember_id/:id", getByOrderMember_id);
 
-app.put("/putOrderPercentNBA", putOrderPercentNBA);
+app.put(api + "/putOrderPercentNBA", putOrderPercentNBA);
 
-app.post("/postOrder", postOrder);
+app.post(api + "/postOrder", postOrder);
 
-app.get("/getJoinOrder_Detail", getJoinOrder_Detail);
+app.get(api + "/getJoinOrder_Detail", getJoinOrder_Detail);
 
-app.put("/putSlip", putSlip);
+app.put(api + "/putSlip", putSlip);
 
-app.put("/putStatusOrder", putStatusOrder);
+app.put(api + "/putStatusOrder", putStatusOrder);
 
-app.get("/getJoinOrder_Member", getJoinOrder_Member);
+app.get(api + "/getJoinOrder_Member", getJoinOrder_Member);
 
-app.get("/getJoinOrder_detail_cutarount", getJoinOrder_detail_cutarount);
-app.get("/getJoinOrderAndMember", getJoinOrderAndMember);
+app.get(api + "/getJoinOrder_detail_cutarount", getJoinOrder_detail_cutarount);
+app.get(api + "/getJoinOrderAndMember", getJoinOrderAndMember);
 // //------------------------------------------------------------------
-app.post("/postOrderDetail", postOrderDetail);
+app.post(api + "/postOrderDetail", postOrderDetail);
 
-app.get("/getByOrderDetail_id/:id", getByOrderDetail_id);
+app.get(api + "/getByOrderDetail_id/:id", getByOrderDetail_id);
 
-app.put("/putStatusOrderDetail", putStatusOrderDetail);
+app.put(api + "/putStatusOrderDetail", putStatusOrderDetail);
 
-app.put("/putCutArountStatus", putCutArountStatus);
+app.put(api + "/putCutArountStatus", putCutArountStatus);
 
-app.put("/putStatusOrderDetail_inProvince", putStatusOrderDetail_inProvince);
+app.put(
+  api + "/putStatusOrderDetail_inProvince",
+  putStatusOrderDetail_inProvince
+);
 
-app.get("/getByCutArountID/:id", getByCutArountID);
+app.get(api + "/getByCutArountID/:id", getByCutArountID);
 
-app.put("/putAmountOrderDetail", putAmountOrderDetail);
+app.put(api + "/putAmountOrderDetail", putAmountOrderDetail);
 
 //----------------------------------------------------------------------
-app.post("/portReportOrderMember", portReportOrderMember);
+app.post(api + "/portReportOrderMember", portReportOrderMember);
 
-app.get("/getAllReportOrderMember", getAllReportOrderMember);
-
-app.get("/getReportOrderMemberJoinProduct", getReportOrderMemberJoinProduct);
-//-------------------------------------------------------------------------
-app.get("/getDeliveryByUserID/:id", getDeliveryByUserID);
-
-app.get("/getJoinDeliveryDetailProvice", getJoinDeliveryDetailProvice);
+app.get(api + "/getAllReportOrderMember", getAllReportOrderMember);
 
 app.get(
-  "/getJoinDeliveryProviceAndMemberReceiver",
+  api + "/getReportOrderMemberJoinProduct",
+  getReportOrderMemberJoinProduct
+);
+//-------------------------------------------------------------------------
+app.get(api + "/getDeliveryByUserID/:id", getDeliveryByUserID);
+
+app.get(api + "/getJoinDeliveryDetailProvice", getJoinDeliveryDetailProvice);
+
+app.get(
+  api + "/getJoinDeliveryProviceAndMemberReceiver",
   getJoinDeliveryProviceAndMemberReceiver
 );
 
 app.get(
-  "/getJoinDeliveryProviceAndMemberDelivery",
+  api + "/getJoinDeliveryProviceAndMemberDelivery",
   getJoinDeliveryProviceAndMemberDelivery
 );
 
-app.post("/portDeliveryInProvice", portDeliveryInProvice);
+app.post(api + "/portDeliveryInProvice", portDeliveryInProvice);
 
-app.put("/putStatusDeliveryProvice", putStatusDeliveryProvice);
+app.put(api + "/putStatusDeliveryProvice", putStatusDeliveryProvice);
 //--------------------------------------------------------
-app.post("/portDeliveryDetailInProvice", portDeliveryDetailInProvice);
-app.get("/getDeliveryDetailByDeliveryID/:id", getDeliveryDetailByDeliveryID);
+app.post(api + "/portDeliveryDetailInProvice", portDeliveryDetailInProvice);
+app.get(
+  api + "/getDeliveryDetailByDeliveryID/:id",
+  getDeliveryDetailByDeliveryID
+);
 //-------------------------------------------------------------
-app.post("/postRiderOrderExpress", postRiderOrderExpress);
-app.get("/getAllRiderOrder", getAllRiderOrder);
-app.get("/getAllOrderExpressJoinRider", getAllOrderExpressJoinRider);
-app.put("/putStatusOrderRider", putStatusOrderRider);
+app.post(api + "/postRiderOrderExpress", postRiderOrderExpress);
+app.get(api + "/getAllRiderOrder", getAllRiderOrder);
+app.get(api + "/getAllOrderExpressJoinRider", getAllOrderExpressJoinRider);
+app.put(api + "/putStatusOrderRider", putStatusOrderRider);
 //----------------------------------------------------------------
-app.post("/postStockProductMember", postStockProductMember);
+app.post(api + "/postStockProductMember", postStockProductMember);
 
-app.get("/getStockProductMemberByUserID/:id", getStockProductMemberByUserID);
+app.get(
+  api + "/getStockProductMemberByUserID/:id",
+  getStockProductMemberByUserID
+);
 
-app.put("/putAmountStockProductMember", putAmountStockProductMember);
+app.put(api + "/putAmountStockProductMember", putAmountStockProductMember);
 
-app.get("/getStockMemberJoinProduct", getStockMemberJoinProduct);
+app.get(api + "/getStockMemberJoinProduct", getStockMemberJoinProduct);
 //---------------------------------------------------------------------------
-app.get("/getAllWallet", getAllWallet);
+app.get(api + "/getAllWallet", getAllWallet);
 
-app.post("/postWallet", postWallet);
+app.post(api + "/postWallet", postWallet);
 
-app.get("/getWalletById/:id", getWalletById);
+app.get(api + "/getWalletById/:id", getWalletById);
 
-app.put("/putSlipWallet", putSlipWallet);
+app.put(api + "/putSlipWallet", putSlipWallet);
 
-app.put("/putWalletTotal", putWalletTotal);
+app.put(api + "/putWalletTotal", putWalletTotal);
 
-app.get("/getJoinWalletMember", getJoinWalletMember);
+app.get(api + "/getJoinWalletMember", getJoinWalletMember);
 //----------------------------------------------------------------------
-app.post("/loginAdmin", loginAdmin);
+app.post(api + "/loginAdmin", loginAdmin);
 
-app.get("/getAllAdmin", getAllAdmin);
+app.get(api + "/getAllAdmin", getAllAdmin);
 
-app.delete("/deleteAdmin/:id", deleteAdmin);
+app.delete(api + "/deleteAdmin/:id", deleteAdmin);
 
-app.get("/getAdminByAutoID/:id", getAdminByAutoID);
+app.get(api + "/getAdminByAutoID/:id", getAdminByAutoID);
 
-app.post("/postAdmin", postAdmin);
+app.post(api + "/postAdmin", postAdmin);
 
-app.put("/putAdmin", putAdmin);
+app.put(api + "/putAdmin", putAdmin);
 //---------------------------------------------------------------------
-app.post("/postPercentOrderDetail", postPercentOrderDetail);
+app.post(api + "/postPercentOrderDetail", postPercentOrderDetail);
 
-app.get("/getJoin_order_detail_member", getJoin_order_detail_member);
+app.get(api + "/getJoin_order_detail_member", getJoin_order_detail_member);
 //----------------------------------------------------------------------
-app.post("/postWalletMember", postWalletMember);
+app.post(api + "/postWalletMember", postWalletMember);
 
-app.get("/getWalletMemberById/:id", getWalletMemberById);
+app.get(api + "/getWalletMemberById/:id", getWalletMemberById);
 
-app.get("/getAllWalletMember", getAllWalletMember);
+app.get(api + "/getAllWalletMember", getAllWalletMember);
 
-app.put("/putWalletMemberTotal", putWalletMemberTotal);
+app.put(api + "/putWalletMemberTotal", putWalletMemberTotal);
 
-app.get("/getWalletJoinMembers", getWalletJoinMembers);
+app.get(api + "/getWalletJoinMembers", getWalletJoinMembers);
 //----------------------------------------------------------------------
-app.post("/portReportWalletMember", portReportWalletMember);
+app.post(api + "/portReportWalletMember", portReportWalletMember);
 
-app.get("/getReportWalletJoinMembers", getReportWalletJoinMembers);
+app.get(api + "/getReportWalletJoinMembers", getReportWalletJoinMembers);
 
-app.put("/putSlipWalletMember", putSlipWalletMember);
+app.put(api + "/putSlipWalletMember", putSlipWalletMember);
 
 //------------------------------------------------------------------------
 
