@@ -2,9 +2,9 @@ let mysql = require('mysql');
 // connection to mysql database
 
 var dbCon = mysql.createConnection({
-    host: 'foodexpress2.nbadigitalworlds.com',
-    user: 'admin2',
-    password: '*9111NBADigital',
+    host: '203.159.92.65',
+    user: 'nbadigit_express',
+    password: 'U18XcYBs',
     database: 'nbadigit_express'
 })
 dbCon.connect();
