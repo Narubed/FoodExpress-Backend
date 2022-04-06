@@ -1,7 +1,7 @@
 let express = require("express");
 let app = express();
 let bodyParser = require("body-parser");
-let PORT = process.env.PORT || 8000;
+let PORT = process.env.PORT || 8080;
 require("dotenv").config();
 
 const cors = require("cors");
