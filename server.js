@@ -6,6 +6,9 @@ require("dotenv").config();
 
 const cors = require("cors");
 
+
+const postLineNotify = require("./models/lineNotify/postLineNotify");
+
 const postReportActionAdmin = require("./models/reportActionAdmin/postReportActionAdmin");
 const getReportAdminJoinAdmin = require("./models/reportActionAdmin/getReportAdminJoinAdmin");
 
@@ -150,6 +153,8 @@ app.get("/", (req, res) => {
     written_by: "Narubed ",
   });
 });
+
+app.post(api + "/postLineNotify", postLineNotify);
 
 app.post(api + "/postReportActionAdmin", postReportActionAdmin);
 
