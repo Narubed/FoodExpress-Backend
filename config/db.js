@@ -1,4 +1,4 @@
-let mysql = require('mysql');
+let mysql = require('mysql2');
 // connection to mysql database
 
 var dbCon = mysql.createConnection({
