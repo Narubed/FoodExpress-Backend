@@ -6,13 +6,14 @@ module.exports = getJoinOrderAndMember = async (req, res) => {
   // ON product.typeid = producttype.id;
 
   dbCon.query(
-    "SELECT * FROM order_foodexpress INNER JOIN member ON order_foodexpress.order_member_id =  member.userId",
+    "SELECT * FROM order_foodexpress INNER JOIN member ON order_foodexpress.order_member_id = member.userId",
     (error, results, fields) => {
       // if (error) throw error;
       console.log("get All getJoinOrderAndMember");
       let message = "";
       if (results === undefined || results.length == 0) {
         message = "product table is getJoinOrderAndMember";
+        results = [];
       } else {
         message = "Successfully retrieved all v";
       }

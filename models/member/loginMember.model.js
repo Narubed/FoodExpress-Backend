@@ -5,7 +5,6 @@ module.exports = postMember = (req, res) => {
 
   // validation
   if (!userId || !password) {
-    console.log("if แรกpostMember");
     return res.status(400).send({
       error: true,
       message: "Please provide NOt member Sumone.",
