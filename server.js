@@ -6,7 +6,6 @@ require("dotenv").config();
 
 const cors = require("cors");
 
-
 const postLineNotify = require("./models/lineNotify/postLineNotify");
 
 const postReportActionAdmin = require("./models/reportActionAdmin/postReportActionAdmin");
@@ -37,6 +36,7 @@ const getByIdProductType = require("./models/productType/getByIdProductType.js")
 const putProductType = require("./models/productType/putProductType.js");
 const deleteProductType = require("./models/productType/deleteProductType.js");
 const getJoinProductType = require("./models/product/getJoinProductType.js");
+const putImageProduct = require("./models/product/putImageProduct");
 
 const postCompany = require("./models/company/postCompany.js");
 const getAllCompany = require("./models/company/getAllCompany.js");
@@ -205,6 +205,8 @@ app.put(api + "/producttype", putProductType);
 app.delete(api + "/producttype/:id", deleteProductType);
 
 app.get(api + "/getJoinProductType", getJoinProductType);
+
+app.put(api + "/putImageProduct", putImageProduct);
 
 //----------------------------------------------------
 app.post(api + "/postCompany", postCompany);

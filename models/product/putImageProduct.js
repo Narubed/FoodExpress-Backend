@@ -27,13 +27,10 @@ const storage = multer.diskStorage({
     console.log(Date.now());
   },
 });
-module.exports = postProduct = (req, res) => {
-  console.log(req.file);
-
+module.exports = putImageProduct = (req, res) => {
   try {
     // 'avatar' is the name of our file input field in the HTML form
     let upload = multer({ storage: storage }).single("avatar");
-    console.log(upload);
     upload(req, res, function (err) {
       if (!req.file) {
         return res.send("Please select an image to upload");
@@ -48,8 +45,8 @@ module.exports = postProduct = (req, res) => {
     console.log(err);
   }
 };
+
 async function uploadFile(req, res) {
-  console.log(req.body);
   const filePath = req.file.path;
   let fileMetaData = {
     name: req.file.originalname,
@@ -64,25 +61,47 @@ async function uploadFile(req, res) {
       media: media,
     });
     generatePublicUrl(response.data.id);
-    const classifiedsadd = {
-      productImg: response.data.id,
-      productName: req.body.productName,
-      productPrice: req.body.productPrice,
-      productCost: req.body.productCost,
-      productStetus: req.body.productStetus,
-      typeid: req.body.typeid,
-      unitkg: req.body.unitkg,
-      currency: req.body.currency,
-      percent_service: req.body.percent_service,
-      percent_NBA: req.body.percent_NBA,
-      // เพิ่มอื่นถ้าจะส่งไป ที่นี้
-    };
-    console.log(classifiedsadd);
-    const sql = "INSERT INTO product SET ?";
-    connection.query(sql, classifiedsadd, (err, results) => {
-      if (err) throw err;
-      res.json({ success: 1 });
-    });
+    let productid = req.body.productid;
+    let productName = req.body.productName;
+    let productPrice = req.body.productPrice;
+    let productCost = req.body.productCost;
+    let productStetus = req.body.productStetus;
+    let typeid = req.body.typeid;
+    let unitkg = req.body.unitkg;
+    let currency = req.body.currency;
+    let percent_service = req.body.percent_service;
+    let percent_NBA = req.body.percent_NBA;
+    let productImg = response.data.id;
+    connection.query(
+      "UPDATE product SET productName = ?, productPrice = ?, productCost = ?, productStetus = ?, typeid = ?,unitkg = ?,currency = ?,percent_service = ?,percent_NBA = ?, productImg =? WHERE productid = ?",
+      [
+        productName,
+        productPrice,
+        productCost,
+        productStetus,
+        typeid,
+        unitkg,
+        currency,
+        percent_service,
+        percent_NBA,
+        productImg,
+        productid,
+      ],
+      (error, results, fields) => {
+        // if (error) throw error;
+        let message = "";
+        if (results.changedRows === 0) {
+          message = "order_foodexpress not found or data are updated";
+        } else {
+          message = "order_foodexpress successfully updated";
+        }
+        return res.send({
+          error: false,
+          data: results,
+          message: message,
+        });
+      }
+    );
   } catch (error) {
     console.log(error.massage);
   }

@@ -6,27 +6,21 @@ module.exports = putPercent = (req, res) => {
   let percent_subdistrict = req.body.percent_subdistrict;
   let percent_district = req.body.percent_district;
   let percent_provice = req.body.percent_provice;
-  let percent_nba = req.body.percent_nba;
 
   // validation
-  if (
-    !percent_id ||
-    !percent_name ||
-    !percent_nba 
-  ) {
+  if (!percent_id || !percent_name) {
     return res.status(400).send({
       error: true,
       message: "Please provide NOt percent_wallet Sumone.",
     });
   } else {
     connection.query(
-      "UPDATE percent_wallet SET percent_name = ?,percent_subdistrict = ?, percent_district = ?, percent_provice = ?, percent_nba = ? WHERE percent_id = ?",
+      "UPDATE percent_wallet SET percent_name = ?,percent_subdistrict = ?, percent_district = ?, percent_provice = ? WHERE percent_id = ?",
       [
         percent_name,
         percent_subdistrict,
         percent_district,
         percent_provice,
-        percent_nba,
         percent_id,
       ],
       (error, results, fields) => {
